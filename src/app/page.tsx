@@ -93,7 +93,10 @@ async function Portfolio() {
   const [firstName, ...rest] = profile.name.split(" ");
   const lastName = rest.join(" ");
   const heroRoles = profile.heroRoles.split("\n").map((r) => r.trim()).filter(Boolean);
-  const orderedProjects = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
+  // Development projects first, video editing projects after; featured first within each.
+  const orderedProjects = [...projects].sort(
+    (a, b) => Number(Boolean(a.videoUrl)) - Number(Boolean(b.videoUrl)) || Number(b.featured) - Number(a.featured),
+  );
 
   const stats = [
     { value: `${projects.length}+`, label: "Projects" },
@@ -342,7 +345,7 @@ async function Portfolio() {
 
         {/* ---------- Projects ---------- */}
         <section id="projects" className="relative scroll-mt-16 py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <SectionTitle eyebrow="Creative works" title="Featured Projects" />
             <Reveal>
               <ProjectCaseStudies projects={orderedProjects} />

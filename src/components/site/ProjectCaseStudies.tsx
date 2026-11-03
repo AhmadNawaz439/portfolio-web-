@@ -41,9 +41,6 @@ function VideoCover({ project, thumb }: { project: Project; thumb: string }) {
           <path d="M7 4.5v15l13-7.5z" />
         </svg>
       </span>
-      <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
-        <VideoIcon width={13} height={13} /> Video
-      </span>
     </>
   );
 }
@@ -186,20 +183,32 @@ export default function ProjectCaseStudies({ projects }: { projects: Project[] }
 
   return (
     <>
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, i) => (
+      {[
+        { label: "Development", items: projects.map((p, i) => [p, i] as const).filter(([p]) => !p.videoUrl) },
+        { label: "Video Editing", items: projects.map((p, i) => [p, i] as const).filter(([p]) => p.videoUrl) },
+      ]
+        .filter((g) => g.items.length > 0)
+        .map((group, gi) => (
+      <div key={group.label} className={gi > 0 ? "mt-6" : ""}>
+      {/* Flex-wrap instead of grid so a short last row is centred, not stuck on the left. */}
+      <div className="flex flex-wrap justify-center gap-6">
+        {group.items.map(([project, i]) => (
           <article
             key={project.id}
-            className="panel group flex flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[var(--blue)]/40 hover:shadow-[0_0_50px_rgba(51,102,255,0.18)]"
+            className="panel group flex w-full flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[var(--blue)]/40 hover:shadow-[0_0_50px_rgba(51,102,255,0.18)] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
           >
             <button
               type="button"
               onClick={(e) => open(i, e.currentTarget)}
-              className="block text-left outline-none"
+              className="relative block text-left outline-none"
               aria-label={`Open ${project.title} case study`}
               tabIndex={-1}
             >
               <Cover project={project} index={i} />
+              {/* Category pill (video projects only), same style as the navbar buttons */}
+              {project.videoUrl && <span className="absolute left-3 top-3 z-10 rounded-full border border-white/15 bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_0_14px_rgba(51,102,255,0.25)] backdrop-blur-md">
+                {group.label}
+              </span>}
             </button>
             <div className="flex flex-1 flex-col p-6">
               {(project.year || project.role) && (
@@ -208,9 +217,11 @@ export default function ProjectCaseStudies({ projects }: { projects: Project[] }
                 </p>
               )}
               <h3 className="mt-1 text-xl font-bold text-white">{project.title}</h3>
-              <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-400">
                 {project.description}
               </p>
+              {/* Spacer keeps tags and the button lined up at the bottom of every card */}
+              <div className="flex-1" />
               <div className="mt-4">
                 <Tags tags={project.tags} />
               </div>
@@ -226,6 +237,8 @@ export default function ProjectCaseStudies({ projects }: { projects: Project[] }
           </article>
         ))}
       </div>
+      </div>
+        ))}
 
       <dialog
         ref={dialogRef}
