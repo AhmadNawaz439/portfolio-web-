@@ -2,25 +2,127 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #18181b;
+  --accent: #4f46e5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: #e0e7ff;
+}
+
+/* Shared form styles for the dashboard and contact form */
+@utility input {
+  @apply w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium text-zinc-700;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-zinc-900 text-white hover:bg-zinc-700;
+}
+@utility btn-outline {
+  @apply btn border border-zinc-200 bg-white text-zinc-800 hover:border-zinc-300 hover:bg-zinc-50;
+}
+@utility btn-danger {
+  @apply btn border border-red-200 bg-white text-red-600 hover:bg-red-50;
+}
+@utility card {
+  @apply rounded-2xl border border-zinc-200 bg-white;
+}
+
+/* ---------- Public site (dark theme) ---------- */
+.site {
+  --blue: #3366ff;
+  --blue-soft: #6b8cff;
+  background: #050507;
+  color: #e7e7ea;
+  font-family: var(--font-outfit), var(--font-geist-sans), system-ui, sans-serif;
+}
+.site ::selection {
+  background: #3366ff;
+  color: white;
+}
+@utility panel {
+  @apply rounded-2xl border border-white/[0.07] bg-white/[0.025] backdrop-blur-sm;
+}
+@utility chip {
+  @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-zinc-300;
+}
+@utility eyebrow {
+  @apply text-[11px] font-semibold uppercase tracking-[0.25em] text-[var(--blue)];
+}
+.outline-text {
+  color: rgba(255, 255, 255, 0.09);
+}
+.glow-box {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid rgba(51, 102, 255, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(51, 102, 255, 0.12), inset 0 0 30px rgba(51, 102, 255, 0.06);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}
+.scroll-dot {
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-dot { animation: none; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Project case-study popup */
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.case-dialog[open] {
+  animation: dialog-in 0.3s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-dialog[open] { animation: none; }
 }

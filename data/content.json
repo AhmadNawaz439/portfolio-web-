@@ -1,0 +1,430 @@
+{
+  "profile": {
+    "name": "Ahmad Nawaz",
+    "role": "Web App Developer & UI/UX Designer",
+    "heroRoles": "UI/UX Designer\nWeb App\nDeveloper",
+    "tagline": "I design and build web apps that look clean, feel simple and work fast, from the first Figma sketch to the final live product.",
+    "aboutTag": "CS Student.",
+    "bio": "I'm a Computer Science student who designs and builds web apps. My studies give me a solid base in programming, data structures, algorithms and databases. I use it to turn ideas into clean interfaces in Figma, then into fast, working products with React and Next.js.",
+    "quote": "Computer Science taught me how things work. Design taught me how they should feel. I bring both into everything I build.",
+    "photoUrl": "/ahmad-portrait.png",
+    "location": "Multan, Pakistan",
+    "email": "relentless.ahmad439@gmail.com",
+    "github": "https://github.com/AhmadNawaz439",
+    "linkedin": "https://www.linkedin.com/in/ahmadnawazdev",
+    "twitter": "",
+    "instagram": "",
+    "resumeUrl": "",
+    "available": true,
+    "yearsExperience": 0,
+    "footerText": "Designing and building web apps people enjoy using.",
+    "whatsapp": "923006425699"
+  },
+  "highlights": [
+    {
+      "title": "Computer Science",
+      "text": "Strong foundations in programming, data structures and algorithms."
+    },
+    {
+      "title": "UI / UX Design",
+      "text": "Wireframes and Figma prototypes built around real users."
+    },
+    {
+      "title": "Web App Development",
+      "text": "Fast, responsive web apps with React, Next.js and Node.js."
+    },
+    {
+      "title": "Problem Solving",
+      "text": "Breaking complex problems into simple, working solutions."
+    },
+    {
+      "title": "Part-Time Video Editor",
+      "text": "Editing engaging videos with clean cuts, smooth pacing and sound."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Urdu",
+      "level": "Native",
+      "percent": 100
+    },
+    {
+      "name": "English",
+      "level": "Professional",
+      "percent": 85
+    }
+  ],
+  "skills": [
+    {
+      "id": "s21",
+      "name": "Python",
+      "category": "Programming Languages"
+    },
+    {
+      "id": "s8",
+      "name": "JavaScript",
+      "category": "Programming Languages"
+    },
+    {
+      "id": "s9",
+      "name": "TypeScript",
+      "category": "Programming Languages"
+    },
+    {
+      "id": "s1",
+      "name": "Figma",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "s2",
+      "name": "Wireframing",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "s3",
+      "name": "Prototyping",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "s4",
+      "name": "User Research",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "s5",
+      "name": "Design Systems",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "s6",
+      "name": "HTML",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "s7",
+      "name": "CSS",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "s10",
+      "name": "React",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "s11",
+      "name": "Next.js",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "s12",
+      "name": "Tailwind CSS",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "s13",
+      "name": "Node.js",
+      "category": "Backend & Databases"
+    },
+    {
+      "id": "s14",
+      "name": "Express",
+      "category": "Backend & Databases"
+    },
+    {
+      "id": "s15",
+      "name": "PostgreSQL",
+      "category": "Backend & Databases"
+    },
+    {
+      "id": "s16",
+      "name": "MongoDB",
+      "category": "Backend & Databases"
+    },
+    {
+      "id": "s17",
+      "name": "Git",
+      "category": "Version Control"
+    },
+    {
+      "id": "s18",
+      "name": "GitHub",
+      "category": "Version Control"
+    },
+    {
+      "id": "s19",
+      "name": "VS Code",
+      "category": "Tools & Deployment"
+    },
+    {
+      "id": "s20",
+      "name": "Vercel",
+      "category": "Tools & Deployment"
+    }
+  ],
+  "projects": [
+    {
+      "id": "unimind",
+      "title": "UniMind AI: AI Study Assistant",
+      "description": "An AI study partner for university students. Upload your lecture notes and UniMind answers questions from them with the exact pages cited, creates quizzes, plans your study time and shows which topics you need to revise.",
+      "tags": [
+        "AI",
+        "LLM",
+        "EdTech"
+      ],
+      "imageUrl": "/projects/unimind-cover.jpg",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-03T05:59:21.710Z",
+      "year": "",
+      "role": "",
+      "problem": "Students have lectures spread across PDFs, slides and notes, and general AI chatbots don't know what was actually taught in their course. It's hard to know what to revise and how ready you are for an exam.",
+      "solution": "I built an AI tutor that reads the student's own uploaded lectures before answering, so every answer is based on their course material and cites the exact pages. Around the tutor, the app turns the same notes into quizzes, tracks mastery for each subject and suggests what to study next.",
+      "features": [
+        "AI Tutor that answers from your uploaded lectures and cites the pages",
+        "Document Library for PDF, DOCX, PPTX and TXT lecture files",
+        "Quiz Center: multiple choice, short and long answer quizzes, graded instantly",
+        "Timed practice exams with difficulty levels",
+        "Subject mastery, weak topics and progress reports",
+        "Study Planner, assignments and a personal dashboard",
+        "Light and dark themes"
+      ],
+      "results": [],
+      "gallery": [
+        "/projects/unimind-tutor.jpg",
+        "/projects/unimind-features.jpg"
+      ]
+    },
+    {
+      "id": "spendly",
+      "title": "Spendly: Expense Tracker App",
+      "description": "A clean mobile app for tracking personal spending. It shows where every rupee goes with a monthly spending chart, category breakdowns and a simple list of daily transactions with opening and closing balances.",
+      "tags": [
+        "Mobile App",
+        "UI/UX Design",
+        "Expense Tracking"
+      ],
+      "imageUrl": "/projects/spendly-cover.jpg",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-03T03:14:10.573Z",
+      "year": "",
+      "role": "",
+      "problem": "Most expense apps are cluttered and make it hard to see the big picture. People want to log daily spending quickly and understand, at a glance, which categories take most of their money each month.",
+      "solution": "I designed and built Spendly around four simple screens: Accounts, Categories, Operations and Statistics. Every expense is tagged with a category, so the app can turn a plain list of transactions into clear monthly insights.",
+      "features": [
+        "Statistics screen with a spending chart and per-category totals",
+        "Switch between spending and income, month by month",
+        "Operations list with opening and closing balance for the month",
+        "Category overview with expense and income totals",
+        "Scheduled payments and budgets",
+        "Quick-add button to log an expense in seconds"
+      ],
+      "results": [],
+      "gallery": [
+        "/projects/spendly-screens.jpg",
+        "/projects/spendly-insights.jpg",
+        "/projects/spendly-operations.jpg"
+      ]
+    },
+    {
+      "id": "p1",
+      "title": "Driving School Management System",
+      "description": "A full management platform for a driving school in British Columbia, with separate portals for admins, instructors, students and parents. It handles lesson scheduling on a weekly calendar, ICBC skill assessments, progress reports, packages, payments and automated reminders, all on a NestJS API with role-based access.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "NestJS",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      "imageUrl": "/projects/driving-school.png",
+      "githubUrl": "https://github.com/Bakkr123/Shanayas-Driving-School-MS",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-02T13:31:26.884Z",
+      "problem": "A driving school in British Columbia needed one place to run its day-to-day work. Admins, instructors, students and parents each needed their own view of lessons, progress and payments.",
+      "solution": "I built a full management platform with a separate portal for each role, backed by a NestJS API with role-based access so every user only sees what they should.",
+      "features": [
+        "Separate portals for admins, instructors, students and parents",
+        "Weekly calendar for lesson scheduling",
+        "ICBC skill assessments and progress reports",
+        "Lesson packages and payments",
+        "Automated reminders"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Stock Inventory Manager",
+      "description": "An offline desktop app for retail shops to manage products, stock and barcodes. It tracks every stock movement in a ledger, warns about low stock, prints barcode labels and shows stock value, with all data kept on the shop's own PC.",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Electron",
+        "SQLite",
+        "Drizzle ORM"
+      ],
+      "imageUrl": "/projects/stock-inventory.png",
+      "githubUrl": "https://github.com/AhmadNawaz439/stock-inventry-project",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-02T13:31:26.884Z",
+      "problem": "Retail shops needed a simple way to manage products, stock and barcodes without depending on the internet or a cloud service.",
+      "solution": "I built an offline desktop app with Electron and Next.js. All data is stored in SQLite on the shop's own PC, and every stock movement is recorded in a ledger.",
+      "features": [
+        "Product and stock management",
+        "Ledger of every stock movement",
+        "Low-stock warnings",
+        "Barcode label printing",
+        "Stock value overview"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Massage Canggu Website",
+      "description": "The website for a mobile massage service in Bali that sends therapists to villas and hotels. It is a fast React site with more than 60 SEO landing pages, each prerendered with its own meta tags, and every page leads visitors to book on WhatsApp.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "Netlify"
+      ],
+      "imageUrl": "/projects/massage-canggu.png",
+      "githubUrl": "https://github.com/Bakkr123/massage-canngu-landing-pages",
+      "liveUrl": "https://massagecanggu.id",
+      "featured": true,
+      "createdAt": "2026-11-02T13:31:26.884Z",
+      "problem": "A mobile massage service in Bali, which sends therapists to villas and hotels, needed to be found on Google and make booking quick for visitors.",
+      "solution": "I built a fast React site with more than 60 SEO landing pages. Each page is prerendered with its own meta tags, and every page leads visitors to book on WhatsApp.",
+      "features": [
+        "60+ prerendered SEO landing pages",
+        "Unique meta tags for every page",
+        "WhatsApp booking from every page",
+        "Fast React + Tailwind front end"
+      ]
+    },
+    {
+      "id": "video1",
+      "title": "Hand-Drawn Animated Story",
+      "description": "A 13-minute animated story in a hand-drawn, MS Paint-style look: stick-figure characters, simple landscapes and scenes of early people living by rivers, lakes and melting ice. I edited the drawings into a smooth, easy-to-follow video with sound.",
+      "tags": [
+        "Video Editing",
+        "2D Animation",
+        "Long-form"
+      ],
+      "imageUrl": "/projects/animation-cover.jpg",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-03T03:25:08.661Z",
+      "videoUrl": "/videos/edit-1.mp4",
+      "role": "Video editor",
+      "problem": "A long story told with simple, hand-drawn pictures can easily feel slow. The challenge was to keep viewers watching for 13 minutes using only still drawings and sound.",
+      "solution": "I edited the hand-drawn scenes into a steady flow. I paced each drawing to the audio, moved from wide landscapes to close-ups of the characters, and used clean transitions so the story stays clear from start to finish.",
+      "features": [
+        "13-minute long-form edit (16:9, 25 fps)",
+        "Hand-drawn, MS Paint-style scenes and stick-figure characters",
+        "Cuts paced to the audio",
+        "Clean transitions between scenes",
+        "Mix of wide landscapes and character close-ups"
+      ],
+      "results": [],
+      "gallery": [
+        "/projects/animation-scenes.jpg"
+      ]
+    },
+    {
+      "id": "video2",
+      "title": "Reel Edit: 3 Big Mistakes",
+      "description": "A 17-second vertical reel for a clothing brand about the 3 big mistakes every brand makes. I turned a talking-head recording into a fast, engaging short with animated captions, title cards, B-roll and a follow call to action.",
+      "tags": [
+        "Video Editing",
+        "Short-form Reel",
+        "9:16"
+      ],
+      "imageUrl": "/projects/reel-cover.jpg",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": true,
+      "createdAt": "2026-11-03T03:33:23.744Z",
+      "role": "Video editor",
+      "year": "",
+      "problem": "A clothing brand needed educational content that stops people from scrolling. A plain talking-head video is easy to skip, especially when the message has several steps.",
+      "solution": "I cut the recording into a tight 17-second story: a strong hook in the first second, a numbered chapter card for the first mistake, on-screen overlays to explain the idea, B-roll of the sampling process, and an ending that teases the next video.",
+      "features": [
+        "Hook title in the first second (“3 Big Mistakes”)",
+        "Word-by-word animated captions with keyword highlights",
+        "Motion title and numbered chapter cards (#01 Sampling)",
+        "Info overlays like “Sample → Production”",
+        "B-roll cutaways of sewing and fabric samples",
+        "Ending with a “Mistake #2” teaser and a Follow button"
+      ],
+      "results": [],
+      "gallery": [
+        "/projects/reel-storyboard.jpg",
+        "/projects/reel-techniques.jpg"
+      ],
+      "videoUrl": "/videos/edit-2.mp4"
+    }
+  ],
+  "experience": [
+    {
+      "id": "e1",
+      "type": "achievement",
+      "role": "Hackathon Finalist",
+      "company": "National Hackathon",
+      "period": "2025",
+      "description": "Competed at national level, building and pitching a working prototype."
+    },
+    {
+      "id": "e2",
+      "type": "work",
+      "role": "Team Leadership",
+      "company": "College project",
+      "period": "2024",
+      "description": "Led a team of developers through design, task division and final deployment."
+    },
+    {
+      "id": "e3",
+      "type": "achievement",
+      "role": "Event Management",
+      "company": "College fest",
+      "period": "2024",
+      "description": "Organised a major college event, managing teams, schedules and operations."
+    },
+    {
+      "id": "e4",
+      "type": "education",
+      "role": "B.Tech Computer Science",
+      "company": "Your University",
+      "period": "2022 - 2026",
+      "description": "Specialising in AI/ML and software engineering."
+    }
+  ],
+  "interests": [
+    {
+      "title": "Book Reading",
+      "description": "Reading books that teach me new ideas and new ways of thinking.",
+      "imageUrl": "/interests/interest-book.jpg"
+    },
+    {
+      "title": "Sports",
+      "description": "Staying active and competitive by playing sports with friends.",
+      "imageUrl": "/interests/interest-sports.jpg"
+    },
+    {
+      "title": "Nature",
+      "description": "Recharging outdoors among trees, mountains and open skies.",
+      "imageUrl": "/interests/interest-nature.jpg"
+    },
+    {
+      "title": "Study",
+      "description": "Always learning new skills, new tools and deeper knowledge.",
+      "imageUrl": "/interests/interest-study.jpg"
+    }
+  ],
+  "messages": [],
+  "views": {}
+}
