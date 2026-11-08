@@ -28,6 +28,7 @@ export function seedDb(): Db {
       quote:
         "Computer Science taught me how things work. Design taught me how they should feel. I bring both into everything I build.",
       photoUrl: "/ahmad-portrait.png",
+      aboutPhotoUrl: "/ahmad-about.jpg",
       location: "Multan, Pakistan",
       email: "relentless.ahmad439@gmail.com",
       github: "https://github.com/AhmadNawaz439",
