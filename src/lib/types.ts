@@ -18,6 +18,8 @@ export type Profile = {
   quote: string;
   /** Path or URL of your photo, e.g. /me.png (file goes in /public). */
   photoUrl: string;
+  /** Optional separate photo for the About section (e.g. /ahmad-about.jpg). */
+  aboutPhotoUrl?: string;
   instagram: string;
   /** WhatsApp number with country code, digits only (e.g. 923001234567). Empty = hidden. */
   whatsapp?: string;

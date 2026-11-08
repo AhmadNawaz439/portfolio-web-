@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/site/SmoothScroll";
 import ExpandingCards from "@/components/site/ExpandingCards";
 import Reveal from "@/components/site/Reveal";
 import ProjectCaseStudies from "@/components/site/ProjectCaseStudies";
+import { SITE_URL } from "@/lib/site";
 import {
   ArrowUpRightIcon,
   BrainIcon,
@@ -93,6 +94,8 @@ async function Portfolio() {
   const [firstName, ...rest] = profile.name.split(" ");
   const lastName = rest.join(" ");
   const heroRoles = profile.heroRoles.split("\n").map((r) => r.trim()).filter(Boolean);
+  // About section can use its own photo; falls back to the main photo.
+  const aboutPhoto = profile.aboutPhotoUrl || profile.photoUrl;
   // Development projects first, video editing projects after; featured first within each.
   const orderedProjects = [...projects].sort(
     (a, b) => Number(Boolean(a.videoUrl)) - Number(Boolean(b.videoUrl)) || Number(b.featured) - Number(a.featured),
@@ -120,8 +123,35 @@ async function Portfolio() {
     { href: profile.twitter, label: "X / Twitter", Icon: XIcon },
   ].filter((s) => s.href);
 
+  // Structured data that tells Google who this site is about.
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.role,
+    description: profile.tagline,
+    url: SITE_URL,
+    ...(profile.photoUrl ? { image: `${SITE_URL}${profile.photoUrl}` } : {}),
+    ...(profile.email ? { email: `mailto:${profile.email}` } : {}),
+    address: { "@type": "PostalAddress", addressLocality: "Multan", addressCountry: "PK" },
+    knowsAbout: skills.map((s) => s.name),
+    sameAs: socials.map((s) => s.href),
+  };
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: `${profile.name} Portfolio`,
+    url: SITE_URL,
+  };
+
   return (
     <div className="site relative flex-1 overflow-x-clip">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([personSchema, websiteSchema]).replace(/</g, "\\u003c"),
+        }}
+      />
       <ViewTracker />
       <SmoothScroll />
       <Navbar name={profile.name} resumeUrl={profile.resumeUrl} />
@@ -176,7 +206,7 @@ async function Portfolio() {
               <h1 className="mt-3 leading-[0.9]">
                 <span className="block text-6xl font-black tracking-tight text-[var(--blue)] drop-shadow-[0_0_35px_rgba(51,102,255,0.5)] sm:text-8xl lg:text-[7.25rem]">
                   {firstName}
-                </span>
+                </span>{" "}
                 {lastName && (
                   <span className="mt-4 block text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
                     {lastName}
@@ -238,10 +268,10 @@ async function Portfolio() {
                 className="absolute inset-x-10 top-10 -z-10 h-3/4 rounded-full bg-[var(--blue)]/20 blur-[90px]"
               />
               <Photo
-                src={profile.photoUrl}
+                src={aboutPhoto}
                 name={profile.name}
                 className={`aspect-[4/5] w-full ${
-                  isCutout(profile.photoUrl) || !profile.photoUrl
+                  isCutout(aboutPhoto) || !aboutPhoto
                     ? "[mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
                     : ""
                 }`}

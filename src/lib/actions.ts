@@ -83,6 +83,7 @@ export async function saveProfile(fd: FormData) {
       aboutTag: str(fd, "aboutTag"),
       quote: str(fd, "quote"),
       photoUrl: str(fd, "photoUrl"),
+      aboutPhotoUrl: str(fd, "aboutPhotoUrl"),
       instagram: str(fd, "instagram"),
       whatsapp: str(fd, "whatsapp").replace(/\D/g, ""),
       footerText: str(fd, "footerText"),

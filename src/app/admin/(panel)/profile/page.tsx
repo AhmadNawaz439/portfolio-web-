@@ -69,6 +69,7 @@ async function ProfileForm({ searchParams }: Props) {
           <h2 className="font-semibold">Hero & about</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {field("photoUrl", "Photo", "/me.png  (put the file in the public folder)")}
+            {field("aboutPhotoUrl", "About section photo (optional)", "/ahmad-about.jpg")}
             {field("aboutTag", "Word next to About heading", "Engineer.")}
           </div>
           {textarea("heroRoles", "Titles on the right of the hero", "One per line, e.g.\nUI/UX Designer\nWeb Developer", p.heroRoles, 2)}
