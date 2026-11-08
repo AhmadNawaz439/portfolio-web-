@@ -18,19 +18,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Ahmad Nawaz Portfolio | Web App Developer & UI/UX Designer";
 const description =
-  "Ahmad Nawaz, Web App Developer and UI/UX Designer from Multan, Pakistan. Projects, skills, video editing and contact.";
+  "Portfolio of Ahmad Nawaz, a web app developer and UI/UX designer from Multan, Pakistan. React and Next.js projects, Figma designs, video editing and contact.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Ahmad Nawaz | Web App Developer & UI/UX Designer",
+  alternates: { canonical: "/" },
+  title,
   description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Ahmad Nawaz | Web App Developer & UI/UX Designer",
+    title,
     description,
     url: "/",
     type: "website",
-    images: [{ url: "/projects/spendly-cover.jpg", width: 3200, height: 2000 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Ahmad Nawaz Portfolio" }],
   },
   robots: { index: true, follow: true },
   // Google Search Console "HTML tag" code, set in Vercel as GOOGLE_SITE_VERIFICATION.
