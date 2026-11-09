@@ -4,8 +4,6 @@ import Navbar from "@/components/site/Navbar";
 import ContactForm from "@/components/site/ContactForm";
 import ViewTracker from "@/components/site/ViewTracker";
 import SmoothScroll from "@/components/site/SmoothScroll";
-import AnimatedBackground from "@/components/site/AnimatedBackground";
-import MouseParallax from "@/components/site/MouseParallax";
 import ExpandingCards from "@/components/site/ExpandingCards";
 import Reveal from "@/components/site/Reveal";
 import ProjectCaseStudies from "@/components/site/ProjectCaseStudies";
@@ -145,8 +143,7 @@ async function Portfolio() {
   };
 
   return (
-    <div className="site relative isolate flex-1 overflow-x-clip">
-      <AnimatedBackground />
+    <div className="site relative flex-1 overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -180,7 +177,7 @@ async function Portfolio() {
             aria-hidden
             className="outline-text pointer-events-none absolute left-1/2 top-[40%] -z-10 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[22vw] font-black uppercase leading-none tracking-tight md:left-[62%] md:text-[10.5vw]"
           >
-            <MouseParallax move={-40}>Portfolio</MouseParallax>
+            Portfolio
           </div>
 
           {/* Photo */}
@@ -190,13 +187,11 @@ async function Portfolio() {
             </div>
           ) : (
             <div className="absolute inset-x-0 bottom-0 -z-10 mx-auto h-[62%] w-full max-w-md [mask-image:linear-gradient(to_bottom,black_60%,transparent_95%)] md:h-[86%] md:max-w-[720px]">
-              <MouseParallax move={18} tilt={9} className="h-full w-full origin-bottom">
-                <Photo
-                  src={profile.photoUrl}
-                  name={profile.name}
-                  className="h-full w-full object-contain object-bottom opacity-50 drop-shadow-[0_0_40px_rgba(51,102,255,0.35)] md:opacity-100"
-                />
-              </MouseParallax>
+              <Photo
+                src={profile.photoUrl}
+                name={profile.name}
+                className="h-full w-full object-contain object-bottom opacity-50 md:opacity-100"
+              />
             </div>
           )}
 
