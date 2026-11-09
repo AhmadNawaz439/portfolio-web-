@@ -4,6 +4,8 @@ import Navbar from "@/components/site/Navbar";
 import ContactForm from "@/components/site/ContactForm";
 import ViewTracker from "@/components/site/ViewTracker";
 import SmoothScroll from "@/components/site/SmoothScroll";
+import AnimatedBackground from "@/components/site/AnimatedBackground";
+import MouseParallax from "@/components/site/MouseParallax";
 import ExpandingCards from "@/components/site/ExpandingCards";
 import Reveal from "@/components/site/Reveal";
 import ProjectCaseStudies from "@/components/site/ProjectCaseStudies";
@@ -94,8 +96,6 @@ async function Portfolio() {
   const [firstName, ...rest] = profile.name.split(" ");
   const lastName = rest.join(" ");
   const heroRoles = profile.heroRoles.split("\n").map((r) => r.trim()).filter(Boolean);
-  // About section can use its own photo; falls back to the main photo.
-  const aboutPhoto = profile.aboutPhotoUrl || profile.photoUrl;
   // Development projects first, video editing projects after; featured first within each.
   const orderedProjects = [...projects].sort(
     (a, b) => Number(Boolean(a.videoUrl)) - Number(Boolean(b.videoUrl)) || Number(b.featured) - Number(a.featured),
@@ -145,7 +145,8 @@ async function Portfolio() {
   };
 
   return (
-    <div className="site relative flex-1 overflow-x-clip">
+    <div className="site relative isolate flex-1 overflow-x-clip">
+      <AnimatedBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -175,12 +176,12 @@ async function Portfolio() {
             aria-hidden
             className="absolute left-1/2 top-[42%] -z-10 h-[420px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue)]/25 blur-[90px]"
           />
-          <p
+          <div
             aria-hidden
             className="outline-text pointer-events-none absolute left-1/2 top-[40%] -z-10 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[22vw] font-black uppercase leading-none tracking-tight md:left-[62%] md:text-[10.5vw]"
           >
-            Portfolio
-          </p>
+            <MouseParallax move={-40}>Portfolio</MouseParallax>
+          </div>
 
           {/* Photo */}
           {profile.photoUrl && !isCutout(profile.photoUrl) ? (
@@ -189,11 +190,13 @@ async function Portfolio() {
             </div>
           ) : (
             <div className="absolute inset-x-0 bottom-0 -z-10 mx-auto h-[62%] w-full max-w-md [mask-image:linear-gradient(to_bottom,black_60%,transparent_95%)] md:h-[86%] md:max-w-[720px]">
-              <Photo
-                src={profile.photoUrl}
-                name={profile.name}
-                className="h-full w-full object-contain object-bottom opacity-50 md:opacity-100"
-              />
+              <MouseParallax move={18} tilt={9} className="h-full w-full origin-bottom">
+                <Photo
+                  src={profile.photoUrl}
+                  name={profile.name}
+                  className="h-full w-full object-contain object-bottom opacity-50 drop-shadow-[0_0_40px_rgba(51,102,255,0.35)] md:opacity-100"
+                />
+              </MouseParallax>
             </div>
           )}
 
@@ -261,23 +264,7 @@ async function Portfolio() {
 
         {/* ---------- About ---------- */}
         <section id="about" className="relative scroll-mt-16 py-24">
-          <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal className="relative mx-auto w-full max-w-md lg:sticky lg:top-24">
-              <div
-                aria-hidden
-                className="absolute inset-x-10 top-10 -z-10 h-3/4 rounded-full bg-[var(--blue)]/20 blur-[90px]"
-              />
-              <Photo
-                src={aboutPhoto}
-                name={profile.name}
-                className={`aspect-[4/5] w-full ${
-                  isCutout(aboutPhoto) || !aboutPhoto
-                    ? "[mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
-                    : ""
-                }`}
-              />
-            </Reveal>
-
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div>
               <Reveal className="flex items-start justify-between gap-4">
                 <h2 className="text-6xl font-black leading-[0.9] text-white sm:text-7xl">
@@ -290,23 +277,23 @@ async function Portfolio() {
               </Reveal>
 
               <Reveal delay={100}>
-                <p className="mt-8 font-mono text-sm leading-relaxed text-zinc-300">{profile.bio}</p>
+                <p className="mt-8 max-w-4xl text-base leading-relaxed text-zinc-300 lg:text-lg">{profile.bio}</p>
               </Reveal>
 
               {highlights.length > 0 && (
-                <Reveal delay={150} className={`mt-8 grid grid-cols-2 gap-3 ${highlights.length === 5 ? "sm:grid-cols-6" : "sm:grid-cols-4"}`}>
+                <Reveal delay={150} className={`mt-10 grid grid-cols-2 gap-4 ${highlights.length === 5 ? "sm:grid-cols-6 lg:grid-cols-5" : "sm:grid-cols-4"}`}>
                   {highlights.map((h, i) => {
                     const Icon = highlightIcons[i % highlightIcons.length];
                     // With 5 boxes: 3 on the first row and 2 wider ones on the second, so no box sits alone.
                     const span =
                       highlights.length === 5
-                        ? `${i < 3 ? "sm:col-span-2" : "sm:col-span-3"} ${i === 4 ? "col-span-2" : ""}`
+                        ? `${i < 3 ? "sm:col-span-2" : "sm:col-span-3"} lg:col-span-1 ${i === 4 ? "col-span-2 sm:col-span-3" : ""}`
                         : "";
                     return (
-                      <div key={h.title} className={`panel p-4 transition hover:border-[var(--blue)]/40 ${span}`}>
-                        <Icon width={18} height={18} className="text-[var(--blue)]" />
+                      <div key={h.title} className={`panel p-5 transition hover:border-[var(--blue)]/40 ${span}`}>
+                        <Icon width={20} height={20} className="text-[var(--blue)]" />
                         <p className="mt-3 text-xs font-bold uppercase tracking-wide text-white">{h.title}</p>
-                        <p className="mt-1.5 text-[11px] leading-snug text-zinc-400">{h.text}</p>
+                        <p className="mt-1.5 text-xs leading-snug text-zinc-400">{h.text}</p>
                       </div>
                     );
                   })}
